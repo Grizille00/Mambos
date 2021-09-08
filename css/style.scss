@@ -127,7 +127,7 @@ h2{
     position: absolute;
     visibility: visible;
     z-index: 2;
-    width: 90%;
+    width: 100%;
     .logo{
         width: 35%;
         position: relative;
@@ -239,6 +239,8 @@ h2{
         stroke-linecap: round;
     }
 
+    
+
 
 
 
@@ -265,6 +267,7 @@ h2{
         }
 
         .menu{
+            margin-top: 0;
             width: fit-content;
             right: 0;
             position: relative;
@@ -593,7 +596,7 @@ h2{
     .about-card{
         width: 100%;
         text-align: center;
-        padding: $left-spacing;
+        padding: $left-spacing $left-spacing/2;
         border-radius: $left-spacing/2;
         box-shadow: 0 3px 8px $color-shadow-black;
         position: relative;
@@ -601,7 +604,7 @@ h2{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: $left-spacing;
+        margin-top: $left-spacing*3/2;
         img{
             // width: 50%;
             object-fit: contain;
@@ -635,7 +638,7 @@ h2{
 
         .about-inner{
             flex-direction: row;
-            width: 48%;
+            width: 50%;
         }
         .about-card{
             width: 48%;
@@ -1023,11 +1026,11 @@ h2{
 
     .controls{
         // display: none;
-        width: 99%;
+        width: 96%;
         display: flex;
         justify-content: space-between;
         position: absolute;
-        left: 1%;
+        left: 2%;
         z-index: 2;
         top:40%;
         visibility:hidden;
@@ -1345,6 +1348,7 @@ h2{
 // Acoustic Section
 
 .acoustic{
+    width: 100%;
     overflow: hidden;
     h2,p{
         position: relative;
@@ -1368,6 +1372,7 @@ h2{
 
     .right-sider{
         top:4%;
+
         background:url('../img/Rectangle\ 47.png');
         background-size: cover;
         box-shadow: -5px 5px 5px $color-pink;
@@ -1375,12 +1380,12 @@ h2{
 
     .my-controls{
         visibility:hidden;
-        width: 98%;
+        width: 96%;
 
         display: flex;
         justify-content: space-between;
         position: absolute;
-        left: 1%;
+        left: 2%;
         z-index: 3;
         top:70%;
         
@@ -1534,6 +1539,7 @@ h2{
     display: flex;
     flex-direction: column;
     overflow:hidden;
+    position: relative;
     
 
     hr{
@@ -1555,6 +1561,8 @@ h2{
         width: 50%;
         margin: $left-spacing auto;
     }
+
+    
     // text-align: center;
 
     h4{
@@ -1578,7 +1586,7 @@ h2{
     }
 
 
-    .show{
+    .show-pic{
         display: none;
         @media (min-width:576px) {
             display: block;
@@ -1586,12 +1594,26 @@ h2{
     }
 
 
+    @media (min-width:1024px) {
+        .links{
+            margin-top: 20vh;
+        }
+    }
+
+
 
     @media (min-width:768px) {
         margin-top: 10vh;
+        padding: 20px;
         div{
             margin: auto;
         }
+        .show-pic{
+            // width:20%;
+        }
+
+        
+      
         .logo{
             width: 20%;
             object-fit: contain;
@@ -1604,6 +1626,7 @@ h2{
         h4{
             font-size: 37px;
             margin-bottom: 2vh;
+            margin-top: 0;
         }
 
 
@@ -1626,7 +1649,7 @@ h2{
     @media (min-width:576px) and (max-width:769px) and (orientation:landscape){
         flex-direction:row;
 
-        .show,.links,.times{
+        .show-pic,.links,.times{
             width:50%;
         }
 
@@ -1635,7 +1658,7 @@ h2{
     }
 
     @media(min-width:768px) and (max-width:1024px){
-        .logo,.show,.times,.links{
+        .logo,.show-pic,.times,.links{
             width: 50%;
         }
         flex-wrap: wrap;

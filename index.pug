@@ -1,0 +1,519 @@
+//- Mixins
+
+mixin banner_content(txt,img)
+    .banner-inner
+        .pricing
+            for i in txt 
+            
+                p
+                    span=i[0]
+                    b=i[1]
+                
+            
+            button(href="#") 
+                img.tp(src="./img/btn-corner1.png", alt="")
+                span buy now 
+                img.btm(src="./img/btn-corner2.png", alt="")
+
+            img.display(src="./img/pexels-nataliya-vaitkevich-5078588-removebg-preview.png", alt="")
+        .showcase 
+            img.img-fluid(src=img, alt="")
+        
+
+mixin card(pic,txt)
+    .about-card
+        img(src=pic, alt="")
+        p
+            span=txt
+
+
+
+
+
+mixin tab_control(img,txt,name,cl1)
+    button(id=`${name}-btn`, class=cl1) 
+        i 
+            img(src=img, alt="")
+        if txt
+            span=txt
+
+mixin menu_tab(vals,name)
+    .tab(class=`${name}-tab`)
+        ul 
+            for i in vals 
+                li 
+                    span=i[0] 
+                    hr
+                    span=i[1] 
+
+
+
+mixin showcase(vals,img,mode)
+    .item(class=`show-${mode}`)
+        .content
+            p
+                |on special today
+            span=vals[0]
+            button(href="#") 
+                |order now 
+                i 
+                    img(src="./img/Icon ionic-ios-arrow-round-forward.png", alt="")
+        .showcase-inner
+            span.price=vals[1]
+            img(src=img, alt="")
+
+
+
+
+mixin new_test(test)
+    .tab(class=`${test[4]}-tab`) 
+        i
+            img(src=test[0], alt="")
+        p.msg
+            span=test[1]
+        p.details
+            span=test[2] 
+            span=test[3]
+        hr
+        
+                
+
+mixin slide(img,txt)
+    .slide 
+        img.pic(src=img, alt="")
+        .overlay
+            .context 
+                span=txt[0] 
+                hr 
+                span=txt[1]
+
+
+
+//- Mixins End
+
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Mambos
+        link(rel="stylesheet", href="./fonts/fonts.css")
+        link(rel="stylesheet", href="./css/bootstrap.min.css")
+        link(rel="stylesheet", href="./css/slick.css")
+        link(rel="stylesheet", href="./css/slick-theme.css")
+        link(rel="stylesheet", href="./css/style.css")
+    body 
+        //- HEader Section
+        header.myheader 
+            img.logo(src="./img/logo-removebg-preview.png", alt="")
+            svg(class="ham hamRotate " viewBox="0 0 100 100" )
+                path(class="line top" d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20")
+                path(class="line middle" d="m 30,50 h 40")
+                path(class="line bottom" d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20")
+           
+
+            nav.menu 
+                a.active(href="#") Home
+                a(href="#") About
+                a(href="#") Menu
+                a(href="#") Specials
+                a(href="#") Acoustic Nights
+        //- Header End   
+
+        //- Banner Section
+        
+        section.banner
+            .controls
+                button.slickPrev
+                    img(src="./img/Icon open-chevron-left.png", alt="")
+                button.slickNext
+                    img(src="./img/Icon open-chevron-right.png", alt="")
+            .slider
+                +banner_content(
+                    [["The Outright","king"],  ["Of Zimbawe ","Shwarmas"],["All At Only","  $1.50"]],
+                    "./img/Hero1.png")
+
+                +banner_content(
+                    [["Roresserie Chicken",],["At An Amazing Price",],["Of Only","$4.50"]],
+                    "./img/hero2.png")
+
+                +banner_content(
+                    [["Rice & Curry Stew",],["Indian","$2.50"],["Mexican","$2.50"]],
+                    "./img/hero3.png"
+                )
+        //- Banner End
+
+                
+
+        //- About Section
+        section.about 
+            .about-content
+                p  who we are?
+                img.display(src="./img/pexels-karolina-grabowska-4033324-removebg-preview.png", alt="")
+            .about-inner 
+                +card('./img/face.png',"The best at providing smiles from service to food, We guarantee a smile")
+                +card('./img/money.png','A menu catered for all wallet sizes, from teens to the working class, We care for all wallet sizes')
+                +card('./img/food-truck.png', "The fastest at deliveries, If you order and you don't get your meal hot, Its on the house")
+                +card('./img/burger1.png','Where what $2 gets you 2 thighs and chips elsewhere We give you twofolds!')
+        //- About End
+
+        //- Menu Section
+        section.menu 
+            img.left(src="./img/Icon map-food.png", alt="")
+            img.right(src="./img/Icon map-food.png", alt="")
+            .container
+                .controls.center
+                    +tab_control("./img/501764.png","beverages", "beverages","menu-btn")
+                    +tab_control("./img/coffee.png","coffee", "coffee","menu-btn")
+                    +tab_control("./img/btn-burger.png","burgers", "burgers","menu-btn")
+                    +tab_control("./img/shawarma.png","shwarma", "shwarma","menu-btn")
+                    +tab_control("./img/btn-pizza.png", "pizzas", "pizzas","menu-btn")
+                .indicator 
+                    hr 
+                    img(src="./img/ind.png", alt="")
+
+                .tab-content  
+                    +menu_tab(
+                        [
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"],
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"]
+                        ],
+                        "beverages"
+                    )
+                    +menu_tab(
+                        [
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"],
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"]
+                        ],
+                        "coffee"
+                    )
+
+                    +menu_tab(
+                        [
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"],
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"]
+                        ],
+                        "burgers"
+                    )
+
+                    +menu_tab(
+                        [
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"],
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"]
+                        ],
+                        "shwarma"
+                    )
+
+                    +menu_tab(
+                        [
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"],
+                            ["minute maid", "USD$1.25"],
+                            ["330ml drinks", "USD$1.00"],
+                            ["500ml drinks","USD$1.75"],
+                            ["pepsi pet","USD$1.00"],
+                            ["cascade pet","USD$0.75"]
+                        ],
+                        "pizzas"
+                    )
+
+      
+        //- Menu End
+
+
+
+        //- Showcase Section
+        section.showcase-section
+            .controls 
+                button.showPrev
+                    img(src="./img/Icon ionic-ios-arrow-dropleft-circle.png", alt="")
+                button.showNext 
+                    img(src="./img/Icon ionic-ios-arrow-dropright-circle.png", alt="")
+
+            .left-sider
+            .right-sider
+
+            .show 
+                +showcase(
+                    ["Beef Shwarma with curry sause", "$1"],
+                    "./img/s-1.png",
+                    1
+                )
+
+                +showcase(
+                    ["Beef Burger Tower with curry sause","$1"],
+                    "./img/s-2.png",
+                    2
+                )
+
+                +showcase(
+                    ["Chicken treat with juicy thighs","$1"],
+                    "./img/s-3.png",
+                    3
+                )
+
+                +showcase(
+                    ["Beef Shwarma with curry sause", "$1"],
+                    "./img/s-1.png",
+                    1
+                )
+
+                +showcase(
+                    ["Beef Burger Tower with curry sause","$1"],
+                    "./img/s-2.png",
+                    2
+                )
+
+                +showcase(
+                    ["Chicken treat with juicy thighs","$1"],
+                    "./img/s-3.png",
+                    3
+                )
+
+        //- Showcase End
+
+
+        //- Testimonials
+        section.testimonials 
+            img.left(src="./img/pexels-karolina-grabowska-4033324-removebg-preview.png", alt="")
+            img.right(src="./img/pexels-karolina-grabowska-4197909-removebg-preview.png", alt="")
+            h2 What Our Customers Say
+            
+            .my-test
+                .test-inner 
+                    +new_test(
+                        ["./img/NoPath - Copy (6).png",
+                        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?",
+                        "Tawanda Chainga",
+                        "Kombi Driver",
+                        "t1"]
+                    )
+
+                    +new_test(
+                        ["./img/NoPath.png",
+                        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?",
+                        "Tawanda Chainga",
+                        "Kombi Driver",
+                        "t2"]
+                    )
+
+                    +new_test(
+                        ["./img/NoPath - Copy (2).png",
+                        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?",
+                        "Tawanda Chainga",
+                        "Kombi Driver",
+                        "t3"]
+                    )
+
+                    +new_test(
+                        ["./img/NoPath - Copy (3).png",
+                        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?",
+                        "Tawanda Chainga",
+                        "Kombi Driver",
+                        "t4"]
+                    )
+
+                    +new_test(
+                        ["./img/NoPath - Copy (4).png",
+                        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?",
+                        "Tawanda Chainga",
+                        "Kombi Driver",
+                        "t5"]
+                    )
+
+                    +new_test(
+                        ["./img/NoPath - Copy (7).png",
+                        "What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?",
+                        "Tawanda Chainga",
+                        "Kombi Driver",
+                        "t6"]
+                    )
+
+             
+
+                .controls
+                    .test
+                        +tab_control(
+                            "./img/NoPath - Copy (6).png",0,'t1',"test-btn"
+                        )
+
+                        +tab_control(
+                            "./img/NoPath.png",0,'t2',"test-btn"
+                        )
+
+                        +tab_control(
+                            "./img/NoPath - Copy (2).png",0,'t3',"test-btn"
+                        )
+
+                        +tab_control(
+                            "./img/NoPath - Copy (3).png",0,'t4',"test-btn"
+                        )
+
+                        +tab_control(
+                            "./img/NoPath - Copy (4).png",0,'t5',"test-btn"
+                        )
+
+                        +tab_control(
+                            "./img/NoPath - Copy (7).png",0,'t6',"test-btn"
+                        )
+            
+            .btm-left 
+                img(src="./img/pexels-karolina-grabowska-4197496-removebg-preview.png", alt="")
+
+            .btm-right 
+                img(src="/img/pexels-nataliya-vaitkevich-5078588-removebg-preview.png", alt="")
+        
+
+
+
+          
+        //- Testimonials End
+
+        //- Gallery Section
+        section.gallery 
+            h2 A Taste Of Our Craftsmanship
+            .container-lg
+                .content
+                    div
+                        img.img-fluid(src="./img/pexels-foodie-factor-551991.png", alt="")
+                    div 
+                        img.img-fluid(src="./img/pexels-rajesh-tp-1624487.png", alt="")
+                        img.img-fluid(src="./img/pexels-buenosia-carol-674574.png", alt="")
+                    div 
+                        img.img-fluid(src="./img/pexels-pixabay-461198.png", alt="")
+                        img.img-fluid(src="./img/pexels-cottonbro-4877838.png", alt="")
+                    div
+                        img(src="./img/pexels-engin-akyurt-2271106.png", alt="")
+            img.btm-right(src="./img/crushed-red-pepper-removebg-preview.png", alt="")
+            
+        //- Gallery End
+
+
+        //- Acoustic Section 
+
+        section.acoustic 
+            img.bg-image(src="./img/Rectangle 47.png", alt="")
+            h2 Acoustic Friday Nights
+            p.sub-text Angwa Branch
+            .my-controls 
+                button.showPrev1
+                    img(src="./img/Icon ionic-ios-arrow-dropleft-circle.png", alt="")
+                button.showNext1 
+                    img(src="./img/Icon ionic-ios-arrow-dropright-circle.png", alt="")
+
+            .left-sider
+            .right-sider
+            
+            .acoustic-inner
+                .acoustic-slide 
+                    +slide(
+                        "./img/alekon-pictures-gqX0rPCmdiU-unsplash.png", 
+                        ["Ngoni Eric","20/12/20"]
+                        )
+
+                    +slide(
+                        "./img/ammara-brown.png",
+                        ["Ammara Brown",'20/12/20']
+                    )
+                    +slide(
+                        "./img/Nutty-O.png",
+                        ["Nutty O",'20/12/20']
+                    )
+                    +slide(
+                        "./img/alekon-pictures-gqX0rPCmdiU-unsplash.png", 
+                        ["Ngoni Eric","20/12/20"]
+                        )
+
+                    +slide(
+                        "./img/ammara-brown.png",
+                        ["Ammara Brown",'20/12/20']
+                    )
+                    +slide(
+                        "./img/Nutty-O.png",
+                        ["Nutty O",'20/12/20']
+                    )
+
+        //- Acoustic End
+
+        //- Footer Section
+
+        footer.my-footer
+            img.logo(src="./img/logo-removebg-preview.png", alt="")
+            img.show-pic(src="./img/pexels-karolina-grabowska-4198115-removebg-preview.png", alt="")
+            .links 
+                h4 Quick Links
+                ul
+                    li
+                        a(href="#") Menu
+                    li
+                        a(href="#") Specials
+                    li
+                        a(href="#") About Us
+                    li
+                        a(href="#") Contact Us
+                hr
+
+            .times 
+                h4 Opening Hours
+                ul
+                    li 
+                        span Angwa | 0800hrs - 2000hrs
+                    li 
+                        span Angwa | 0800hrs - 2000hrs
+                    li 
+                        span Angwa | 0800hrs - 2000hrs
+                    li 
+                        span Angwa | 0800hrs - 2000hrs
+
+            
+
+        //- Footer end
+
+
+
+        script(src="./js/jquery-2.2.0.min.js") 
+        script(src="./js/bootstrap.bundle.min.js") 
+        script(src="./js/slick.min.js")
+        script(src="./js/main.js") 
+
+        
+        
+
+
