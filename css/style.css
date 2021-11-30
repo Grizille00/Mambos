@@ -6,7 +6,7 @@ h2 {
 }
 @media (min-width: 768px) {
   h2 {
-    font-size: 44px;
+    font-size: 40px;
   }
 }
 @media (min-width: 576px) and (max-width: 769px) and (orientation: landscape) {
@@ -508,7 +508,7 @@ h2 {
     transition: 0.4s ease-in;
   }
   .about .about-card p {
-    font-size: 30px;
+    font-size: 16px;
   }
   .about .about-card:hover {
     background-color: #EEEDED;
@@ -685,7 +685,7 @@ h2 {
   }
   .menu .tab-content li {
     width: 40%;
-    font-size: 26px;
+    font-size: 19px;
   }
   .menu .tab-content hr {
     width: 100px;
@@ -822,7 +822,10 @@ h2 {
     margin-top: 25vh;
   }
   .showcase-section p, .showcase-section button, .showcase-section span {
-    font-size: 26px !important;
+    font-size: 24px !important;
+  }
+  .showcase-section .item {
+    min-height: 220px;
   }
   .showcase-section .item.show-3 {
     padding: 10px;
@@ -1138,7 +1141,7 @@ h2 {
     text-align: left;
   }
   .acoustic .sub-text {
-    font-size: 44px;
+    font-size: 30px;
     font-weight: 100;
   }
   .acoustic .bg-image {
@@ -1148,7 +1151,7 @@ h2 {
     left: 3%;
   }
   .acoustic .slide span {
-    font-size: 40px;
+    font-size: 25px;
   }
 }
 @media (min-width: 576px) and (max-width: 768px) {
@@ -1232,11 +1235,11 @@ h2 {
        object-fit: contain;
   }
   .my-footer h4 {
-    font-size: 37px;
+    font-size: 30px;
     margin-bottom: 2vh;
   }
   .my-footer a, .my-footer span {
-    font-size: 28px;
+    font-size: 20px;
   }
   .my-footer .links h4 {
     margin-top: 7vh;

@@ -66,7 +66,12 @@ $left-spacing:20px;
 
 // Mixins End
 
-
+// .overbar{
+//     width: 94%;
+//     @media (min-width:1367px) {
+//         width: 90%;
+//     }
+// }
 
 // Typography
 
@@ -76,7 +81,7 @@ h2{
     font-family: $text-light;
     text-align: center;
     @media (min-width:768px) {
-        font-size: 44px;
+        font-size: 40px;
     }
     @media (min-width:576px) and (max-width:769px) and (orientation:landscape){
         font-size:36px;
@@ -642,7 +647,7 @@ h2{
             width: 48%;
             transition: .4s ease-in;
             p{
-                font-size: 30px;
+                font-size: 16px;
             }
             &:hover{
                 background-color: $color-light-gray;
@@ -874,7 +879,7 @@ h2{
         .tab-content{
             li{
                 width: 40%;
-                font-size: 26px;
+                font-size: 19px;
             }
             hr{
                 width: 100px;
@@ -920,6 +925,7 @@ h2{
         color: $color-white;
         border-radius: $left-spacing;
         font-family: $text-regular ;
+
 
         button{
             outline: none;
@@ -1052,11 +1058,12 @@ h2{
     @media (min-width:769px) {
         margin-top: 25vh;
         p,button,span{
-            font-size: 26px !important;
+            font-size: 24px !important;
         }
 
 
         .item{
+            min-height: 220px;
             &.show-3{
             padding: 10px;
             }
@@ -1115,7 +1122,7 @@ h2{
     text-align: center;
     padding: $left-spacing*5 $left-spacing;
     transition: .4s ease-in;
-
+    
     .left{
         position: absolute;
         top: -15%;
@@ -1482,7 +1489,7 @@ h2{
             text-align: left;
         }
         .sub-text{
-            font-size: 44px;
+            font-size: 30px;
             font-weight: 100;
         }
 
@@ -1498,7 +1505,7 @@ h2{
             }
     
             span{
-                font-size: 40px;
+                font-size: 25px;
             }
         }
 
@@ -1609,13 +1616,13 @@ h2{
         align-items: center;
 
         h4{
-            font-size: 37px;
+            font-size: 30px;
             margin-bottom: 2vh;
         }
 
 
         a,span{
-            font-size: 28px;
+            font-size: 20px;
         }
 
         .links{
